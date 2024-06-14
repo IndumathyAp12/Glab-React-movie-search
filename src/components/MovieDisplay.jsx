@@ -1,7 +1,5 @@
-import {useState, useEffect} from "react";
-// You can also destructure your props directly from the parameter list
 export default function MovieDisplay({ movie }) {
-    return (
+    const loaded = () => (
       <>
         <h1>{movie.Title}</h1>
         <h2>{movie.Genre}</h2>
@@ -9,4 +7,8 @@ export default function MovieDisplay({ movie }) {
         <h2>{movie.Year}</h2>
       </>
     );
+  
+    const loading = () => <h1>No Movie to Display</h1>;
+  
+    return movie ? loaded() : loading();
   }
